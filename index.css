@@ -1,11 +1,22 @@
 body {
-
+font-family: Courier;
+background-image: url('images/table.png');
+font-weight: 5;
+color: rgb(0, 0, 0);
+text-align: center;
 }
 
 h1 {
     color: goldenrod;
 }
 
-#message-el {
-    
+button{
+    background-color: goldenrod;
+    padding: 0%;
+    margin: 5;
+    border-radius: 10%;
+    width: 150px;
 }
+/* #message-el {
+    
+} */

@@ -6,7 +6,7 @@ let secondCard = 4
 
 //challenge #1
 //create a new variable and set it to the sum of the two cards 
-
+let result = firstCard + secondCard;
 
 //chalenge #2 
 // code the statements below based on the conditions shown in blackjack.png from the images folder
