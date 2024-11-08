@@ -13,7 +13,14 @@ let result = firstCard + secondCard;
 // your output should work in the browser's console based on changing the values assigned to the cards
 
 //starter code
+let message;
+if(result < 21){
     message = "Do you want to draw a new card? 🙂"
+}
+if(result === 21){
     message = "Wohoo! You've got Blackjack! 🥳"
+}
+if(result > 21){
     message = "You're out of the game! 😭"
+}
 console.log(message)
