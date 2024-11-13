@@ -1,26 +1,69 @@
-// Build a BlackJack Game
-
-// variables representing two cards 
 let firstCard = 10
 let secondCard = 4
+let sum = firstCard + secondCard;
+let message = " ";
 
-//challenge #1
-//create a new variable and set it to the sum of the two cards 
-let result = firstCard + secondCard;
-
-//chalenge #2 
-// code the statements below based on the conditions shown in blackjack.png from the images folder
-// your output should work in the browser's console based on changing the values assigned to the cards
-
-//starter code
-let message;
-if(result < 21){
+if (sum < 21) {
     message = "Do you want to draw a new card? 🙂"
 }
-if(result === 21){
+if (sum === 21) {
     message = "Wohoo! You've got Blackjack! 🥳"
 }
-if(result > 21){
+if (sum > 21) {
     message = "You're out of the game! 😭"
 }
+
 console.log(message)
+
+const cards = new Array();
+let hasBlackjack = false;
+let isAlive = true;
+let messageEl = document.getElementById("message-el");
+let sumEl = document.getElementById("sum-el");
+let cardsEl = document.getElementById("cards-el");
+
+function renderGame() {
+    if (sum < 21) {
+        isAlive = true;
+    } if (sum === 21) {
+        hasBlackjack = true;
+    } else {
+        isAlive = false;
+        hasBlackjack = false;
+    }
+
+    for (let i = 0; i < cards.length; i++) {
+        cardsEl.textContent += cards[i];
+        sum += cards[i];
+        sumEl.innerText = sum + " ";
+    }
+}
+
+function newCard() {
+    let card = getRandomCard();
+    sum += card;
+    sumEl = sum;
+    cards.push(card);
+    console.log(cards);
+    renderGame();
+}
+
+function startGame() {
+    isAlive = true;
+    firstCard = getRandomCard();
+    cardsEl += firstCard;
+    secondCard = getRandomCard();
+    cardsEl += secondCard;
+    renderGame();
+}
+
+function getRandomCard() {
+    let randomNumber = Math.floor(Math.random() * 12 + 1);
+    if (randomNumber === 1) {
+        return 11;
+    } else if (randomNumber > 9) {
+        return 10;
+    } else {
+        return randomNumber;
+    }
+}
